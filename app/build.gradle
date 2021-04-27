@@ -46,6 +46,9 @@ android {
     packagingOptions {
         exclude 'META-INF/atomicfu.kotlin_module'
     }
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
 }
 
 dependencies {
@@ -58,11 +61,21 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment:2.2.2'
     implementation 'androidx.navigation:navigation-ui:2.2.2'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-//    testImplementation 'junit:junit:4.12'
+    implementation 'org.testifyproject.mock:mockito:1.0.6'
     //    Junit Mockito components
-    testImplementation 'junit:junit:4.13.2'
-    testImplementation 'org.mockito:mockito-core:2.19.0'
-    testImplementation 'android.arch.core:core-testing:1.1.1'
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.mockito:mockito-core:3.7.7'
+    testImplementation 'org.mockito:mockito-inline:2.8.47'
+
+//    androidTestImplementation 'androidx.test.rules:1.2.0'
+//    androidTestImplementation 'androidx.test.runner:1.2.0'
+
+    testImplementation 'android.arch.core:core-testing:2.1.0'
+ /*   testImplementation 'com.nhaarman:mockito-kotlin-kt1.1:1.5.0'
+    testImplementation 'org.mockito:mockito-all:2.0.2-beta'
+    testImplementation 'org.mockito:mockito-android:3.7.7'*/
+
+
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation 'com.google.android.material:material:1.1.0'

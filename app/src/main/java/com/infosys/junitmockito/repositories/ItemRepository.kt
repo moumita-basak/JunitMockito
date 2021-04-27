@@ -13,4 +13,8 @@ class ItemRepository(private val api: MyApi, private val application: Applicatio
       Logger.e(requestMap.toString())
       return apiRequest{api.getItems(requestMap)}
   }
+
+    public fun getData():String{
+        return "hello"
+    }
 }
