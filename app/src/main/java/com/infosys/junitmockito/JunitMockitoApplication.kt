@@ -36,7 +36,7 @@ class JunitMockitoApplication : Application(), KodeinAware {
         bind() from singleton { MyApi(instance()) }
 
         bind() from provider { ItemViewModelFactory(instance(),instance()) }
-        bind() from singleton { ItemRepository(instance(),instance()) }
+        bind() from singleton { ItemRepository(instance(),instance(),instance()) }
 
     }
 }

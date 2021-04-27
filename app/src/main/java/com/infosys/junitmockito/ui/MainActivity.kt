@@ -2,7 +2,10 @@ package com.infosys.junitmockito.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.infosys.junitmockito.Adapter.CustomAdapter
@@ -35,6 +38,10 @@ class MainActivity : AppCompatActivity(),AuthListener,KodeinAware{
     }
 
     private fun eventListener() {
+        itemViewModel.museums.observe(this, renderMuseums)
+        itemViewModel.isViewLoading.observe(this, isViewLoadingObserver)
+        itemViewModel.onMessageError.observe(this, onMessageErrorObserver)
+        itemViewModel.isEmptyList.observe(this, emptyListObserver)
         itemViewModel.itemPojo.observe(this@MainActivity, androidx.lifecycle.Observer {
             var ss= it.rows
             itemList = it.rows
@@ -44,6 +51,22 @@ class MainActivity : AppCompatActivity(),AuthListener,KodeinAware{
             binding.recyclerView.adapter = customAdapter
 
         })
+    }
+    private val renderMuseums = Observer<List<ItemRow>> {
+
+        customAdapter.update(it as MutableList)
+    }
+
+    private val isViewLoadingObserver = Observer<Boolean> {
+
+    }
+
+    private val onMessageErrorObserver = Observer<Any> {
+
+    }
+
+    private val emptyListObserver = Observer<Boolean> {
+
     }
 
     private fun initCode() {

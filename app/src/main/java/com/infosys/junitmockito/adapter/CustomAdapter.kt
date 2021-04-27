@@ -51,6 +51,11 @@ class CustomAdapter(private val mContext: Context, private var itemsList: Mutabl
 
 
     }
+
+    fun update(data: MutableList<ItemRow>) {
+        itemsList = data
+        notifyDataSetChanged()
+    }
     override fun getItemCount(): Int {
         return itemsList.size
     }
