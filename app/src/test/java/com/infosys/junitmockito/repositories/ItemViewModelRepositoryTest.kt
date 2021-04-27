@@ -8,6 +8,7 @@ import org.junit.Assert.*
 class ItemViewModelRepositoryTest {
 
     lateinit var itemRepository: ItemRepository
+
     @Before
     fun setUp() {
     }
